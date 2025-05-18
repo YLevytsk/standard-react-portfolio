@@ -23,12 +23,18 @@ const ButtonStyle = styled.div`
 
 export default function Button({
   btnText = 'test',
-  btnLink = 'test',
+  btnLink = '#',
   outline = false,
 }) {
   return (
     <ButtonStyle outline={outline} className="button-wrapper">
-      <a className="button" href={btnLink} download>
+      <a
+        className="button"
+        href={btnLink}
+        download
+        target="_blank"
+        rel="noreferrer"
+      >
         {btnText}
       </a>
     </ButtonStyle>
