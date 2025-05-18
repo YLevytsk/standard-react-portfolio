@@ -1,3 +1,5 @@
+/* eslint-disable prettier/prettier */
+
 import React from 'react';
 import styled from 'styled-components';
 import PText from '../components/PText';
@@ -82,26 +84,31 @@ export default function About() {
           <div className="top-section">
             <div className="left">
               <p className="about__subheading">
-                Hi, I am <span>Misbah Uddin Muib</span>
+                Hi, I am <span>Yuliia Levytska</span>
               </p>
-              <h2 className="about__heading">A Software developer</h2>
+              <h2 className="about__heading">A FullStack Developer</h2>
               <div className="about__info">
-                <PText>
-                  I am from Dhaka, Bangladesh.I love art and design. I always
-                  try to design stuff with my unique point of view.I also love
-                  to create things that can be useful to others.
-                  <br /> <br />
-                  I started coding since I was in high school. Coding is also an
-                  art for me. I love it and now I have the opportunity to design
-                  along with the coding. I find it really interesting and I
-                  enjoyed the process a lot.
-                  <br />
-                  <br />
-                  My vision is to make the world a better place. Now almost
-                  everything is becoming better than ever. It is time for us to
-                  create more good stuff that helps the world to become a better
-                  place.
-                </PText>
+               <PText>
+  Hello! I'm from Kreminna, Ukraine. <br />
+  I’m passionate about art, design, and website development. <br />
+  I always try to create things with my own unique perspective, <br />
+  and I love building things that can be useful to others. <br /><br />
+
+  I got interested in coding about a year ago <br />
+  after watching a few trial lessons on programming. <br />
+  It opened up a whole new world for me within the IT field. <br />
+  I fell in love with it, and now I have the opportunity <br />
+  to combine coding with design. <br /><br />
+
+  I find this combination truly exciting, <br />
+  and I genuinely enjoy the entire process of creating. <br /><br />
+
+  My vision is to make the world a better place. <br />
+  Today, almost everything is improving more than ever. <br />
+  Now it's time for us to build meaningful things <br />
+  that help the world become an even better place.
+</PText>
+
               </div>
               <Button btnText="Download Resume" btnLink="" />
             </div>
