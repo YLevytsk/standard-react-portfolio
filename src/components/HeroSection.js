@@ -1,6 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
-import HeroImg from '../assets/images/hero.png';
+import HeroImg from '../assets/images/hero.jpg';
 import Button from './Button';
 import SocialMediaArrow from '../assets/images/social-media-arrow.svg';
 import ScrollDownArrow from '../assets/images/scroll-down-arrow.svg';
@@ -159,15 +159,16 @@ export default function HeroSection() {
         <div className="container">
           <h1 className="hero__heading">
             <span>Hello, This is</span>
-            <span className="hero__name">Misbah Uddin Muib</span>
+            <span className="hero__name">Yuliia Levytska</span>
           </h1>
           <div className="hero__img">
             <img src={HeroImg} alt="" />
           </div>
           <div className="hero__info">
             <PText className="hero-text">
-              I am working as a Software Developer.I love to design and make new
-              web experiences for the people.
+              I'm a Fullstack Developer who builds clean and user-friendly
+              websites. I'm also a UI/UX designer — ready to help with landing
+              pages, redesigns, and app interfaces.
             </PText>
             <Button btnText="see my works" btnLink="/projects" />
           </div>
@@ -180,7 +181,7 @@ export default function HeroSection() {
               <ul>
                 <li>
                   <a
-                    href="https://www.facebook.com/misbahuddin.muib/"
+                    href="https://www.behance.net/yuliialevytska"
                     target="_blank"
                     rel="noreferrer"
                   >
@@ -189,7 +190,7 @@ export default function HeroSection() {
                 </li>
                 <li>
                   <a
-                    href="https://twitter.com/misbahuddinmuib"
+                    href="https://www.linkedin.com/in/yuliia-levytska-90a94b2a6/"
                     target="_blank"
                     rel="noreferrer"
                   >
@@ -198,16 +199,7 @@ export default function HeroSection() {
                 </li>
                 <li>
                   <a
-                    href="https://www.instagram.com/misbahmuib_/"
-                    target="_blank"
-                    rel="noreferrer"
-                  >
-                    IG
-                  </a>
-                </li>
-                <li>
-                  <a
-                    href="https://github.com/MisbahMuib"
+                    href="https://github.com/YLevytsk"
                     target="_blank"
                     rel="noreferrer"
                   >

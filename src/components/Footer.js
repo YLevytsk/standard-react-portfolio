@@ -61,10 +61,10 @@ export default function Footer() {
     <FooterStyle>
       <div className="container">
         <div className="footer__col1">
-          <h1 className="footer__col1__title">Misbah Uddin Muib</h1>
+          <h1 className="footer__col1__title">Yuliia Levytska</h1>
           <PText className="footer-text">
-            A Software developer from Dhaka, Bangladesh.I always make websites
-            that have unique designs and also has a good performance rate.
+            A FullStack developer from Cambridge, UK.I always make websites have
+            have unique designs and also has a good performance rate.
           </PText>
         </div>
         <div className="footer__col2">
@@ -104,15 +104,15 @@ export default function Footer() {
             heading="Contact Info"
             links={[
               {
-                title: '+8801737889918',
-                path: 'tel:+8801737889918',
+                title: '+447493583937',
+                path: 'tel:+447493583937',
               },
               {
-                title: 'misbahuddinmuib@gmail.com',
-                path: 'mailto:misbahuddinmuib@gmail.com',
+                title: 'lupin773311asd@gmail.com',
+                path: 'mailto:lupin773311asd@gmail.com',
               },
               {
-                title: 'Mirpur-1, Tolarbagh , Dhaka-1216, Bangladesh',
+                title: 'Cambridge,UK',
                 path: 'http://google.com/maps',
               },
             ]}
@@ -124,23 +124,15 @@ export default function Footer() {
             links={[
               {
                 title: 'Github',
-                path: 'https://github.com/MisbahMuib',
+                path: 'https://github.com/YLevytsk',
               },
               {
                 title: 'Linkedin',
-                path: 'https://www.linkedin.com/in/misbahuddinmuib/',
+                path: 'https://www.linkedin.com/in/yuliia-levytska-90a94b2a6/',
               },
               {
-                title: 'Facebook',
-                path: 'https://www.facebook.com/misbahuddin.muib/',
-              },
-              {
-                title: 'Instagram',
-                path: 'https://www.instagram.com/misbahmuib_/',
-              },
-              {
-                title: 'Twitter',
-                path: 'https://twitter.com/misbahuddinmuib',
+                title: 'Bechance',
+                path: 'https://www.behance.net/yuliialevytska',
               },
             ]}
           />
@@ -149,7 +141,7 @@ export default function Footer() {
       <div className="copyright">
         <div className="container">
           <PText>
-            © 2022 - MisbahMuib | Designed By{' '}
+            © 2025 - Levytska| Designed By{' '}
             <a target="_blank" rel="noreferrer" href="http://intigsol.com">
               Intigsol
             </a>{' '}

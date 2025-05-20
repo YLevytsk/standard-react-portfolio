@@ -4,35 +4,46 @@ import PText from './PText';
 
 const AboutItemStyles = styled.div`
   display: flex;
-  align-items: center;
+  align-items: flex-start;
   justify-content: flex-start;
-  position: relative;
-  /* gap: 5rem; */
+  flex-wrap: wrap;
+  gap: 2rem;
   margin-top: 3rem;
+
   .title {
     font-size: 2.4rem;
+    min-width: 180px;
+    margin-bottom: 1rem;
   }
+
   .items {
     display: flex;
-    gap: 1.5rem;
-    position: absolute;
-    left: 18rem;
+    flex-wrap: wrap;
+    gap: 1rem;
+    flex: 1;
   }
+
   .item {
+    line-height: 1.6;
+    white-space: pre-line;
     background-color: var(--deep-dark);
-    padding: 1rem;
+    padding: 1rem 1.5rem;
     border-radius: 8px;
+    word-break: break-word;
   }
+
   @media only screen and (max-width: 768px) {
     flex-direction: column;
-    align-items: flex-start;
-    gap: 1rem;
-    .items {
-      position: initial;
-      gap: 1rem;
-    }
+
     .title {
       font-size: 2rem;
+      margin-bottom: 1rem;
+    }
+
+    .items {
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 1rem;
     }
   }
 `;

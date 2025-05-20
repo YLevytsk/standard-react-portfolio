@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import styled from 'styled-components';
 
 const ButtonStyle = styled.div`
@@ -23,20 +24,14 @@ const ButtonStyle = styled.div`
 
 export default function Button({
   btnText = 'test',
-  btnLink = '#',
+  btnLink = 'test',
   outline = false,
 }) {
   return (
     <ButtonStyle outline={outline} className="button-wrapper">
-      <a
-        className="button"
-        href={btnLink}
-        download
-        target="_blank"
-        rel="noreferrer"
-      >
+      <Link className="button" to={btnLink}>
         {btnText}
-      </a>
+      </Link>
     </ButtonStyle>
   );
 }

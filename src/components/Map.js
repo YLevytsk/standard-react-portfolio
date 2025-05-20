@@ -1,6 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
-import MapImg from '../assets/images/map.png';
+import MapImg from '../assets/images/map.jpg';
 import PText from './PText';
 
 const MapStyles = styled.div`
@@ -49,10 +49,10 @@ export default function Map() {
       <div className="container">
         <div className="map__card">
           <h3 className="map__card__heading">Here is me</h3>
-          <PText>Mirpur-1, Tolarbagh, Dhaka, Bangladesh</PText>
+          <PText>Cambridge,UK</PText>
           <a
             className="map__card__link"
-            href="https://www.google.com/maps/place/1+Tolarbag+Mosque+Rd,+Dhaka+1216/@23.7867831,90.3480971,17z/data=!3m1!4b1!4m5!3m4!1s0x3755c0ecb4de23c1:0xba5056e981e4539b!8m2!3d23.7867782!4d90.3502858"
+            href="https://maps.app.goo.gl/Qt6CJ46GtwR6TErG7"
             target="_blank"
             rel="noreferrer"
           >
