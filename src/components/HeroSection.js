@@ -8,16 +8,21 @@ import ScrollDownArrow from '../assets/images/scroll-down-arrow.svg';
 import PText from './PText';
 
 const HeroStyles = styled.div`
+  padding: 10rem 0;
   .hero {
-    margin-top: 80px;
     height: 100vh;
-    min-height: 1000px;
     width: 100%;
     text-align: center;
     display: flex;
     align-items: center;
     justify-content: center;
     position: relative;
+  }
+  @media only screen and (max-width: 768px) {
+    .hero {
+      height: auto;
+      width: 100%;
+    }
   }
 
   .hero__heading {
@@ -153,39 +158,49 @@ const HeroStyles = styled.div`
   }
 
   @media only screen and (max-width: 768px) {
+    padding: 5rem 0;
     .hero {
-      min-height: 750px;
+      max-width: 100%;
     }
+
     .hero__heading {
       font-size: 1.4rem;
-      margin-bottom: 200px;
     }
+
     .hero__name {
       font-size: 4.5rem;
     }
+
     .hero__img {
       height: 300px;
     }
+
     .hero__info {
       margin-top: 3rem;
     }
+
     .hero-info,
     .hero-text {
       text-align: justify;
     }
+
     .hero__social {
       left: 0px;
       bottom: -15%;
       width: 20px;
+
       .hero__social__indicator {
         width: 20px;
+
         p {
           font-size: 1.2rem;
         }
+
         img {
           max-height: 22px;
         }
       }
+
       .hero__social__text {
         ul {
           li {
@@ -197,10 +212,12 @@ const HeroStyles = styled.div`
         }
       }
     }
+
     .hero__scrollDown {
       right: 0;
       width: 20px;
       gap: 1rem;
+
       p {
         font-size: 1.3rem;
       }

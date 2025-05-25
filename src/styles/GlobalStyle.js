@@ -38,6 +38,15 @@ const GlobalStyles = createGlobalStyle`
     width: 90%;
     margin: 0 auto;
   }
+    @media only screen and (max-width: 767px) and (min-width: 330px) {
+  .container {
+    width: 320px;
+    max-width: 100%;
+    margin: 0px auto;
+    padding: 0px 16px;
+}
+}
+
 /* Smooth Scroll  */
   [data-scrollbar] {
     height: 100vh;

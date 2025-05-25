@@ -14,7 +14,7 @@ const ProjectSectionStyle = styled.div`
   .projects__allItems {
     display: flex;
     gap: 3rem;
-    margin-top: 0rem;
+    margin-top: 0;
   }
 
   .keen-slider {
@@ -66,16 +66,21 @@ const ProjectSectionStyle = styled.div`
   }
 
   @media only screen and (max-width: 768px) {
+    padding: 5rem 0;
+
     .projects__allItems {
       flex-direction: column;
       max-width: 400px;
-      margin: 0 auto;
-      margin-top: 7rem;
+      margin: 3.6rem auto 0;
       gap: 5rem;
 
       .projectItem__img {
         width: 100%;
       }
+    }
+
+    .keen-slider {
+      padding-top: 0;
     }
   }
 `;
