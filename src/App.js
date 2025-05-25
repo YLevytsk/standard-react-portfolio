@@ -9,9 +9,9 @@ import ScrollToTop from './components/ScrollToTop';
 import Home from './pages/Home';
 
 const About = lazy(() => import('./pages/About'));
-const Blogs = lazy(() => import('./pages/Blogs'));
 const Contact = lazy(() => import('./pages/Contact'));
 const Projects = lazy(() => import('./pages/Projects'));
+// const Blogs = lazy(() => import('./pages/Blogs')); // временно отключено
 
 function App() {
   useEffect(() => {
@@ -35,7 +35,7 @@ function App() {
           <Route path="/about" element={<About />} />
           <Route path="/contact" element={<Contact />} />
           <Route path="/projects" element={<Projects />} />
-          <Route path="/blogs" element={<Blogs />} />
+          {/* <Route path="/blogs" element={<Blogs />} /> */}
         </Routes>
       </Suspense>
       <Footer />
