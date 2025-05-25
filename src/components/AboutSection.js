@@ -1,9 +1,9 @@
-import React from 'react';
+import React, { memo } from 'react';
 import styled from 'styled-components';
 import Button from './Button';
 import PText from './PText';
 import SectionTitle from './SectionTitle';
-import AboutImg from '../assets/images/about-sec-img.jpg';
+import AboutImg from '../assets/images/about-sec-img.webp';
 
 const AboutSectionStyles = styled.div`
   padding: 10rem 0;
@@ -31,7 +31,6 @@ const AboutSectionStyles = styled.div`
     gap: 2rem;
     margin-top: 2rem;
   }
-
   .aboutSection__left,
   .about-text {
     text-align: justify;
@@ -75,29 +74,31 @@ const AboutSectionStyles = styled.div`
   }
 `;
 
-export default function AboutSection() {
+function AboutSection() {
   return (
     <AboutSectionStyles>
       <div className="container">
-        <div className="aboutSection__left">
+        <div className="aboutSection__left" data-aos="fade-right">
           <SectionTitle
             subheading="Let me introduce myself"
             heading="About Me"
           />
           <PText className="about-text">
             I am a FullStack developer and UI/UX Designer from Cambridge, United
-            Kingdom.I create professional websites. I love art and always try to
-            show unique views to the audience through my design.
+            Kingdom. I create professional websites. I love art and always try
+            to show unique views to the audience through my design.
           </PText>
           <div className="aboutSection__buttons">
             <Button btnText="Works" btnLink="/projects" />
             <Button btnText="Read More" btnLink="/about" outline />
           </div>
         </div>
-        <div className="aboutSection__right">
+        <div className="aboutSection__right" data-aos="fade-left">
           <img className="aboutImg" src={AboutImg} alt="Img" />
         </div>
       </div>
     </AboutSectionStyles>
   );
 }
+
+export default memo(AboutSection);

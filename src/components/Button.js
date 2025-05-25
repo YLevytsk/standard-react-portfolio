@@ -22,16 +22,12 @@ const ButtonStyle = styled.div`
   }
 `;
 
-export default function Button({
-  btnText = 'test',
-  btnLink = 'test',
-  outline = false,
-}) {
-  return (
-    <ButtonStyle outline={outline} className="button-wrapper">
-      <Link className="button" to={btnLink}>
-        {btnText}
-      </Link>
-    </ButtonStyle>
-  );
-}
+const Button = ({ btnText = 'test', btnLink = 'test', outline = false }) => (
+  <ButtonStyle outline={outline} className="button-wrapper">
+    <Link className="button" to={btnLink}>
+      {btnText}
+    </Link>
+  </ButtonStyle>
+);
+
+export default React.memo(Button);

@@ -24,14 +24,14 @@ const SectionTitleStyle = styled.div`
   }
 `;
 
-export default function SectionTitle({
+const SectionTitle = ({
   subheading = 'Need Subheading',
   heading = 'need heading',
-}) {
-  return (
-    <SectionTitleStyle className="section-title">
-      <p>{subheading}</p>
-      <h2>{heading}</h2>
-    </SectionTitleStyle>
-  );
-}
+}) => (
+  <SectionTitleStyle className="section-title">
+    <p>{subheading}</p>
+    <h2>{heading}</h2>
+  </SectionTitleStyle>
+);
+
+export default React.memo(SectionTitle);

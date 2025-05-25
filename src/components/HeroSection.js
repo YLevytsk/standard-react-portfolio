@@ -1,6 +1,7 @@
-import React from 'react';
+import React, { memo } from 'react';
 import styled from 'styled-components';
-import HeroImg from '../assets/images/hero.jpg';
+import { Link } from 'react-router-dom';
+import HeroImg from '../assets/images/hero.webp';
 import Button from './Button';
 import SocialMediaArrow from '../assets/images/social-media-arrow.svg';
 import ScrollDownArrow from '../assets/images/scroll-down-arrow.svg';
@@ -8,6 +9,7 @@ import PText from './PText';
 
 const HeroStyles = styled.div`
   .hero {
+    margin-top: 80px;
     height: 100vh;
     min-height: 1000px;
     width: 100%;
@@ -17,46 +19,66 @@ const HeroStyles = styled.div`
     justify-content: center;
     position: relative;
   }
+
   .hero__heading {
     font-size: 2rem;
-    margin-bottom: -4rem;
+    margin-bottom: 20px;
     position: relative;
+    opacity: 0;
+    transform: translateY(-40px);
+    animation: slideDownFade 1s ease-out forwards;
+    animation-delay: 0.2s;
+
     span {
       display: inline-block;
       width: 100%;
     }
-    .hero__name {
-      font-family: 'Montserrat SemiBold';
-      font-size: 7rem;
-      color: var(--white);
-    }
   }
+
+  .hero__name {
+    font-family: 'Montserrat SemiBold';
+    font-size: 7rem;
+    color: var(--white);
+  }
+
   .hero__img {
     max-width: 900px;
     width: 100%;
-    height: 600px;
+    height: 500px;
     margin: 0 auto;
     border: 2px solid var(--gray-1);
+    opacity: 0;
+    transform: scale(0.9) rotateX(45deg);
+    animation: zoomReveal 1s ease-out forwards;
+    animation-delay: 0.8s;
   }
+
   .hero__info {
     margin-top: -18rem;
+    opacity: 0;
+    transform: translateY(50px);
+    animation: slideUpFade 1s ease-out forwards;
+    animation-delay: 1.4s;
   }
 
   .hero__social,
   .hero__scrollDown {
     display: flex;
+    position: fixed;
     flex-direction: column;
     gap: 2rem;
-    position: absolute;
-
-    bottom: 20px;
     width: 50px;
+    z-index: 10;
   }
+
   .hero__social {
     left: 50px;
+    bottom: 280px;
   }
+
   .hero__scrollDown {
     right: 50px;
+    bottom: 440px;
   }
 
   .hero__social__indicator,
@@ -73,11 +95,14 @@ const HeroStyles = styled.div`
       width: 16px;
       margin: 0 auto;
       object-fit: contain;
+      animation: bounceDown 2s ease-in-out infinite;
     }
   }
+
   .hero__scrollDown {
     img {
       max-height: 70px;
+      animation: bounceDown 2s ease-in-out infinite;
     }
   }
 
@@ -96,16 +121,47 @@ const HeroStyles = styled.div`
     }
   }
 
+  @keyframes slideDownFade {
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  @keyframes zoomReveal {
+    to {
+      opacity: 1;
+      transform: scale(1) rotateX(0deg);
+    }
+  }
+
+  @keyframes slideUpFade {
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  @keyframes bounceDown {
+    0%,
+    100% {
+      transform: translateY(0);
+    }
+    50% {
+      transform: translateY(8px);
+    }
+  }
+
   @media only screen and (max-width: 768px) {
     .hero {
       min-height: 750px;
     }
     .hero__heading {
       font-size: 1.4rem;
-      margin-bottom: -3rem;
-      .hero__name {
-        font-size: 4.5rem;
-      }
+      margin-bottom: 200px;
+    }
+    .hero__name {
+      font-size: 4.5rem;
     }
     .hero__img {
       height: 300px;
@@ -152,7 +208,7 @@ const HeroStyles = styled.div`
   }
 `;
 
-export default function HeroSection() {
+function HeroSection() {
   return (
     <HeroStyles>
       <div className="hero">
@@ -162,7 +218,7 @@ export default function HeroSection() {
             <span className="hero__name">Yuliia Levytska</span>
           </h1>
           <div className="hero__img">
-            <img src={HeroImg} alt="" />
+            <img src={HeroImg} alt="Yuliia" />
           </div>
           <div className="hero__info">
             <PText className="hero-text">
@@ -175,7 +231,7 @@ export default function HeroSection() {
           <div className="hero__social">
             <div className="hero__social__indicator">
               <p>Follow</p>
-              <img src={SocialMediaArrow} alt="icon" />
+              <img src={SocialMediaArrow} alt="arrow" />
             </div>
             <div className="hero__social__text">
               <ul>
@@ -185,7 +241,7 @@ export default function HeroSection() {
                     target="_blank"
                     rel="noreferrer"
                   >
-                    FB
+                    BH
                   </a>
                 </li>
                 <li>
@@ -194,7 +250,7 @@ export default function HeroSection() {
                     target="_blank"
                     rel="noreferrer"
                   >
-                    TW
+                    IN
                   </a>
                 </li>
                 <li>
@@ -203,7 +259,7 @@ export default function HeroSection() {
                     target="_blank"
                     rel="noreferrer"
                   >
-                    GI
+                    GH
                   </a>
                 </li>
               </ul>
@@ -211,18 +267,14 @@ export default function HeroSection() {
           </div>
           <div className="hero__scrollDown">
             <li>
-              <a
-                href="https://muib.netlify.app/"
-                target="_blank"
-                rel="noreferrer"
-              >
-                LIVE
-              </a>
+              <Link to="/projects">LIVE</Link>
             </li>
-            <img src={ScrollDownArrow} alt="ScrollDown Arrow" />
+            <img src={ScrollDownArrow} alt="Scroll down" />
           </div>
         </div>
       </div>
     </HeroStyles>
   );
 }
+
+export default memo(HeroSection);

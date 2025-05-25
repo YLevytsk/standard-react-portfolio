@@ -11,6 +11,7 @@ const ItemStyles = styled.div`
   gap: 2rem;
   border-radius: 8px;
   margin-bottom: 2rem;
+
   .icon {
     color: var(--white);
     background-color: var(--gray-2);
@@ -20,21 +21,27 @@ const ItemStyles = styled.div`
     justify-content: center;
     border-radius: 50%;
   }
+
   svg {
     width: 3.5rem;
   }
+
+  .info .para {
+    margin: 0 !important;
+  }
+
+  .info .para p {
+    margin: 0;
+  }
 `;
 
-export default function ContactInfoItem({
-  icon = <MdPlace />,
-  text = 'I need text ',
-}) {
-  return (
-    <ItemStyles>
-      <div className="icon">{icon}</div>
-      <div className="info">
-        <PText>{text}</PText>
-      </div>
-    </ItemStyles>
-  );
-}
+const ContactInfoItem = ({ icon = <MdPlace />, text = 'I need text ' }) => (
+  <ItemStyles>
+    <div className="icon">{icon}</div>
+    <div className="info">
+      <PText>{text}</PText>
+    </div>
+  </ItemStyles>
+);
+
+export default React.memo(ContactInfoItem);

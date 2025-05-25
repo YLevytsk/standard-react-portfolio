@@ -19,16 +19,16 @@ const ItemStyles = styled.div`
   }
 `;
 
-export default function ServicesSectionItem({
+const ServicesSectionItem = ({
   icon = <MdDesktopMac />,
   title = 'Web Design',
   desc = "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's ok",
-}) {
-  return (
-    <ItemStyles className="servicesItem">
-      <div className="servicesItem__icon">{icon}</div>
-      <div className="servicesItem__title">{title}</div>
-      <PText>{desc}</PText>
-    </ItemStyles>
-  );
-}
+}) => (
+  <ItemStyles className="servicesItem">
+    <div className="servicesItem__icon">{icon}</div>
+    <div className="servicesItem__title">{title}</div>
+    <PText>{desc}</PText>
+  </ItemStyles>
+);
+
+export default React.memo(ServicesSectionItem);

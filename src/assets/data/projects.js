@@ -1,9 +1,10 @@
 import { v4 as uuidv4 } from 'uuid';
 import ProjectImg from '../images/projectImg.jpg';
-import UTrackerImg from '../images/utracker.jpg';
-import GreenCtgImg from '../images/greenctg.jpg';
-import CoinTrackerImg from '../images/cointracker.jpg';
-import CavinImg from '../images/cavinimg.jpg';
+import UTrackerImg from '../images/utracker.webp';
+import GreenCtgImg from '../images/greenctg.webp';
+import CoinTrackerImg from '../images/cointracker.webp';
+import CavinImg from '../images/cavinimg.webp';
+import MyChock from '../images/mychock.webp';
 
 const projects = [
   {
@@ -20,27 +21,27 @@ const projects = [
   },
   {
     id: uuidv4(),
-    name: 'Coin Tracker',
-    desc: 'Using this app you can track any e coin. Also you will get a good advise about investment form the professional',
+    name: 'Portfolio website',
+    desc: 'A team landing page project built with HTML, CSS, and JS, where I created the Reviews section with a focus on layout and styling.',
     img: CoinTrackerImg,
   },
   {
     id: uuidv4(),
-    name: "Cavin's Portfolio",
-    desc: 'A portfolio for Cavin jr. A artist from New york city. The portfolio is made using ReactJs and GatsbyJs.',
+    name: 'Puzzle Game',
+    desc: 'A collaborative landing page project built with React, where I developed the Privacy Policy, Cookies pages, and three key homepage sections.',
     img: CavinImg,
   },
   {
     id: uuidv4(),
-    name: 'Tracking Soft',
-    desc: 'A tracking website that will show the performance of the website. Also you will get some useful advice to improve the performance.',
+    name: 'Phone book',
+    desc: 'A full-featured phonebook app built with React, Redux Toolkit, and React Router, featuring user authentication, contact management, and persistent backend integration via MockAPI.',
     img: ProjectImg,
   },
   {
     id: uuidv4(),
-    name: 'Tracking Soft',
-    desc: 'A tracking website that will show the performance of the website. Also you will get some useful advice to improve the performance.',
-    img: CavinImg,
+    name: 'My Chocklet',
+    desc: 'An e-commerce landing page for handcrafted chocolate, built with HTML, CSS, and JavaScript, featuring product showcase sections, responsive layout, and smooth scrolling navigation.',
+    img: MyChock,
   },
 ];
 

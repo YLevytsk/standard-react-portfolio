@@ -1,39 +1,46 @@
-import React from 'react';
-import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
+import React, { Suspense, lazy, useEffect } from 'react';
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import AOS from 'aos';
+import 'aos/dist/aos.css';
+
 import Footer from './components/Footer';
 import NavMenu from './components/NavMenu';
 import ScrollToTop from './components/ScrollToTop';
-import About from './pages/About';
-import Blogs from './pages/Blogs';
-import Contact from './pages/Contact';
 import Home from './pages/Home';
-import Projects from './pages/Projects';
 
-export default function App() {
+const About = lazy(() => import('./pages/About'));
+const Blogs = lazy(() => import('./pages/Blogs'));
+const Contact = lazy(() => import('./pages/Contact'));
+const Projects = lazy(() => import('./pages/Projects'));
+
+function App() {
+  useEffect(() => {
+    AOS.init({
+      duration: 1000,
+      once: true,
+    });
+  }, []);
+
   return (
-    <>
-      <Router>
-        <NavMenu />
-        <ScrollToTop />
-        <Switch>
-          <Route path="/about">
-            <About />
-          </Route>
-          <Route path="/contact">
-            <Contact />
-          </Route>
-          <Route path="/projects">
-            <Projects />
-          </Route>
-          <Route path="/blogs">
-            <Blogs />
-          </Route>
-          <Route path="/">
-            <Home />
-          </Route>
-        </Switch>
-        <Footer />
-      </Router>
-    </>
+    <Router>
+      <NavMenu />
+      <ScrollToTop />
+      <Suspense
+        fallback={
+          <div style={{ padding: '5rem', textAlign: 'center' }}>Loading...</div>
+        }
+      >
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/about" element={<About />} />
+          <Route path="/contact" element={<Contact />} />
+          <Route path="/projects" element={<Projects />} />
+          <Route path="/blogs" element={<Blogs />} />
+        </Routes>
+      </Suspense>
+      <Footer />
+    </Router>
   );
 }
+
+export default React.memo(App);

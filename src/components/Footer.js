@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { memo } from 'react';
 import styled from 'styled-components';
 import FooterCol from './FooterCol';
 import PText from './PText';
@@ -6,26 +6,43 @@ import PText from './PText';
 const FooterStyle = styled.div`
   background-color: var(--deep-dark);
   padding-top: 10rem;
+
   .container {
     display: flex;
     gap: 3rem;
   }
+
   .footer__col1 {
     flex: 2;
   }
+
   .footer__col2,
   .footer__col3,
   .footer__col4 {
     flex: 1;
   }
+
   .footer__col1__title {
     font-size: 3.5rem;
     margin-bottom: 1rem;
   }
+
   .footer__col1,
   .footer-text {
     text-align: justify;
   }
+
+  /* Сброс отступов от PText только в .footer__col1 и .copyright */
+  .footer__col1 .para,
+  .copyright .para {
+    margin: 0 !important;
+  }
+
+  .footer__col1 .para p,
+  .copyright .para p {
+    margin: 0;
+  }
+
   .copyright {
     background-color: var(--dark-bg);
     text-align: left;
@@ -35,6 +52,7 @@ const FooterStyle = styled.div`
       margin-left: 0;
     }
   }
+
   @media only screen and (max-width: 768px) {
     .container {
       flex-direction: column;
@@ -43,9 +61,11 @@ const FooterStyle = styled.div`
         margin-top: 5rem;
       }
     }
+
     .footer__col1 .para {
       max-width: 100%;
     }
+
     .copyright {
       .container {
         div {
@@ -56,15 +76,15 @@ const FooterStyle = styled.div`
   }
 `;
 
-export default function Footer() {
+function Footer() {
   return (
     <FooterStyle>
       <div className="container">
         <div className="footer__col1">
           <h1 className="footer__col1__title">Yuliia Levytska</h1>
           <PText className="footer-text">
-            A FullStack developer from Cambridge, UK.I always make websites have
-            have unique designs and also has a good performance rate.
+            A FullStack developer from Cambridge, UK. I always make websites
+            have unique designs and also have a good performance rate.
           </PText>
         </div>
         <div className="footer__col2">
@@ -141,13 +161,15 @@ export default function Footer() {
       <div className="copyright">
         <div className="container">
           <PText>
-            © 2025 - Levytska| Designed By{' '}
+            © 2025 - Levytska | Designed By{' '}
             <a target="_blank" rel="noreferrer" href="http://intigsol.com">
               Intigsol
-            </a>{' '}
+            </a>
           </PText>
         </div>
       </div>
     </FooterStyle>
   );
 }
+
+export default memo(Footer);

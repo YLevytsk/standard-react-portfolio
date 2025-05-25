@@ -31,7 +31,6 @@ const ProjectStyle = styled.div`
   .projects__searchBar .searchIcon {
     position: absolute;
     width: 2rem;
-
     right: 1rem;
   }
   .projects__searchBar .searchIcon path {
@@ -47,9 +46,10 @@ const ProjectStyle = styled.div`
   }
 `;
 
-export default function Projects() {
+const Projects = () => {
   const [searchText, setSearchText] = useState('');
   const [projectsData, setProjectsData] = useState(ProjectsInfo);
+
   useEffect(() => {
     if (searchText === '') return;
     setProjectsData(() =>
@@ -58,6 +58,7 @@ export default function Projects() {
       )
     );
   }, [searchText]);
+
   const handleChange = (e) => {
     e.preventDefault();
     setSearchText(e.target.value);
@@ -65,37 +66,35 @@ export default function Projects() {
       setProjectsData(ProjectsInfo);
     }
   };
+
   return (
-    <>
-      <ProjectStyle>
-        <div className="container">
-          <SectionTitle
-            heading="Projects"
-            subheading="some of my recent works"
-          />
-          <div className="projects__searchBar">
-            <form>
-              <input
-                type="text"
-                value={searchText}
-                onChange={handleChange}
-                placeholder="Project Name"
-              />
-              <MdSearch className="searchIcon" />
-            </form>
-          </div>
-          <div className="projects__allItems">
-            {projectsData.map((item) => (
-              <ProjectItem
-                key={item.id}
-                title={item.name}
-                desc={item.desc}
-                img={item.img}
-              />
-            ))}
-          </div>
+    <ProjectStyle>
+      <div className="container">
+        <SectionTitle heading="Projects" subheading="some of my recent works" />
+        <div className="projects__searchBar">
+          <form>
+            <input
+              type="text"
+              value={searchText}
+              onChange={handleChange}
+              placeholder="Project Name"
+            />
+            <MdSearch className="searchIcon" />
+          </form>
         </div>
-      </ProjectStyle>
-    </>
+        <div className="projects__allItems">
+          {projectsData.map((item) => (
+            <ProjectItem
+              key={item.id}
+              title={item.name}
+              desc={item.desc}
+              img={item.img}
+            />
+          ))}
+        </div>
+      </div>
+    </ProjectStyle>
   );
-}
+};
+
+export default React.memo(Projects);

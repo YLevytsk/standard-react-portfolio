@@ -21,18 +21,12 @@ const DownloadButtonStyle = styled.div`
   }
 `;
 
-export default function DownloadButton({ text = 'Download', file = '#' }) {
-  return (
-    <DownloadButtonStyle className="button-wrapper">
-      <a
-        className="button"
-        href={file}
-        download
-        target="_blank"
-        rel="noreferrer"
-      >
-        {text}
-      </a>
-    </DownloadButtonStyle>
-  );
-}
+const DownloadButton = ({ text = 'Download', file = '#' }) => (
+  <DownloadButtonStyle className="button-wrapper">
+    <a className="button" href={file} download target="_blank" rel="noreferrer">
+      {text}
+    </a>
+  </DownloadButtonStyle>
+);
+
+export default React.memo(DownloadButton);

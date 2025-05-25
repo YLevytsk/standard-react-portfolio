@@ -15,7 +15,7 @@ const ColStyle = styled.div`
   }
 `;
 
-export default function FooterCol({
+const FooterCol = ({
   heading = 'Col Heading',
   links = [
     {
@@ -29,23 +29,23 @@ export default function FooterCol({
       path: '/about',
     },
   ],
-}) {
-  return (
-    <ColStyle>
-      <h2 className="heading">{heading}</h2>
-      <ul>
-        {links.map((item, index) => (
-          <li key={index}>
-            {item.type === 'Link' ? (
-              <Link to={item.path}>{item.title}</Link>
-            ) : (
-              <a href={item.path} target="_blank" rel="noreferrer">
-                {item.title}
-              </a>
-            )}
-          </li>
-        ))}
-      </ul>
-    </ColStyle>
-  );
-}
+}) => (
+  <ColStyle>
+    <h2 className="heading">{heading}</h2>
+    <ul>
+      {links.map((item, index) => (
+        <li key={index}>
+          {item.type === 'Link' ? (
+            <Link to={item.path}>{item.title}</Link>
+          ) : (
+            <a href={item.path} target="_blank" rel="noreferrer">
+              {item.title}
+            </a>
+          )}
+        </li>
+      ))}
+    </ul>
+  </ColStyle>
+);
+
+export default React.memo(FooterCol);

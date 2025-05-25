@@ -36,7 +36,7 @@ const ProjectItemStyles = styled.div`
   }
 `;
 
-export default function ProjectItem({
+const ProjectItem = React.memo(function ProjectItem({
   img = ProjectImg,
   title = 'Project Name',
   desc = 'Lorem Ipsum is simply dummy text of the printing and typesetting industry.',
@@ -44,14 +44,14 @@ export default function ProjectItem({
   return (
     <ProjectItemStyles>
       <Link to="/projects" className="projectItem__img">
-        <img src={img} alt="project img" />
+        <img src={img} alt="project img" loading="lazy" />
       </Link>
       <div className="projectItem__info">
-        <Link to="#">
-          <h3 className="projectItem__title">{title}</h3>
-        </Link>
+        <h3 className="projectItem__title">{title}</h3>
         <p className="projectItem__desc">{desc}</p>
       </div>
     </ProjectItemStyles>
   );
-}
+});
+
+export default ProjectItem;

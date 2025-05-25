@@ -36,22 +36,22 @@ const BlogItemStyle = styled.div`
   }
 `;
 
-export default function BlogItem({
+const BlogItem = ({
   img = blogImg,
   title = 'Blog Name',
   desc = 'Lorem Ipsum is simply dummy text of the printing and typesetting industry.',
-}) {
-  return (
-    <BlogItemStyle>
-      <Link to="/blogs" className="blogItem__img">
-        <img src={img} alt="blog img" />
+}) => (
+  <BlogItemStyle>
+    <Link to="/blogs" className="blogItem__img">
+      <img src={img} alt="blog img" loading="lazy" />
+    </Link>
+    <div className="blogItem__info">
+      <Link to="#">
+        <h3 className="blogItem__title">{title}</h3>
       </Link>
-      <div className="blogItem__info">
-        <Link to="#">
-          <h3 className="blogItem__title">{title}</h3>
-        </Link>
-        <p className="blogItem__desc">{desc}</p>
-      </div>
-    </BlogItemStyle>
-  );
-}
+      <p className="blogItem__desc">{desc}</p>
+    </div>
+  </BlogItemStyle>
+);
+
+export default React.memo(BlogItem);

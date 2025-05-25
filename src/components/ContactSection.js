@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { memo } from 'react';
 import styled from 'styled-components';
 import { MdEmail, MdLocalPhone } from 'react-icons/md';
 import ContactForm from './ContactForm';
@@ -32,7 +32,6 @@ const ContactSectionStyle = styled.div`
     max-width: 500px;
     width: 100%;
     border-radius: 12px;
-    /* padding-left: 3rem; */
   }
   @media only screen and (max-width: 768px) {
     .contactSection__wrapper {
@@ -51,7 +50,7 @@ const ContactSectionStyle = styled.div`
   }
 `;
 
-export default function ContactSection() {
+function ContactSection() {
   return (
     <ContactSectionStyle>
       <div className="container">
@@ -73,3 +72,5 @@ export default function ContactSection() {
     </ContactSectionStyle>
   );
 }
+
+export default memo(ContactSection);

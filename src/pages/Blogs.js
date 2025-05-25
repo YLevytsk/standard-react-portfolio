@@ -31,7 +31,6 @@ const BlogStyle = styled.div`
   .blogs__searchBar .searchIcon {
     position: absolute;
     width: 2rem;
-
     right: 1rem;
   }
   .blogs__searchBar .searchIcon path {
@@ -46,9 +45,10 @@ const BlogStyle = styled.div`
   }
 `;
 
-export default function Blogs() {
+const Blogs = () => {
   const [searchText, setSearchText] = useState('');
   const [blogsData, setBlogsData] = useState(blogsInfo);
+
   useEffect(() => {
     if (searchText === '') return;
     setBlogsData(() =>
@@ -57,6 +57,7 @@ export default function Blogs() {
       )
     );
   }, [searchText]);
+
   const handleChange = (e) => {
     e.preventDefault();
     setSearchText(e.target.value);
@@ -64,37 +65,35 @@ export default function Blogs() {
       setBlogsData(blogsInfo);
     }
   };
+
   return (
-    <>
-      <BlogStyle>
-        <div className="container">
-          <SectionTitle
-            heading="Blogs"
-            subheading="some of my featured posts"
-          />
-          <div className="blogs__searchBar">
-            <form>
-              <input
-                type="text"
-                value={searchText}
-                onChange={handleChange}
-                placeholder="Blogs Name"
-              />
-              <MdSearch className="searchIcon" />
-            </form>
-          </div>
-          <div className="blogs__allItems">
-            {blogsData.map((item) => (
-              <BlogItem
-                key={item.id}
-                title={item.name}
-                desc={item.desc}
-                img={item.img}
-              />
-            ))}
-          </div>
+    <BlogStyle>
+      <div className="container">
+        <SectionTitle heading="Blogs" subheading="some of my featured posts" />
+        <div className="blogs__searchBar">
+          <form>
+            <input
+              type="text"
+              value={searchText}
+              onChange={handleChange}
+              placeholder="Blogs Name"
+            />
+            <MdSearch className="searchIcon" />
+          </form>
         </div>
-      </BlogStyle>
-    </>
+        <div className="blogs__allItems">
+          {blogsData.map((item) => (
+            <BlogItem
+              key={item.id}
+              title={item.name}
+              desc={item.desc}
+              img={item.img}
+            />
+          ))}
+        </div>
+      </div>
+    </BlogStyle>
   );
-}
+};
+
+export default React.memo(Blogs);
